@@ -1,0 +1,93 @@
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/fonts/BebasNeue-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lobster';
+  src: url('/fonts/Lobster-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Space Mono';
+  src: url('/fonts/SpaceMono-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/CormorantGaramond-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #080808;
+  --surface: #111111;
+  --border: #1e1e1e;
+  --text: #f5f5f5;
+  --muted: #555555;
+  --accent: #f5f5f5;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+}
+
+html, body {
+  height: 100%;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+
+  background-color: #0a0a0c;
+  background-image:
+    /* top-left metallic highlight */
+    radial-gradient(ellipse 85% 45% at 12% 0%,   rgba(160,170,210,0.11) 0%, transparent 60%),
+    /* bottom-right cold reflection */
+    radial-gradient(ellipse 65% 60% at 88% 105%, rgba(100,115,160,0.07) 0%, transparent 55%),
+    /* center specular — the faint glint in the middle */
+    radial-gradient(ellipse 35% 20% at 55% 38%,  rgba(255,255,255,0.018) 0%, transparent 100%),
+    /* base diagonal — gives directionality to the "grain" */
+    linear-gradient(148deg, #121216 0%, #0a0a0c 28%, #0d0d11 62%, #080809 100%);
+}
+
+/* Overlay que pulsa durante la animacion del canvas */
+html {
+  --render-glow: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 44%, rgba(190,200,240,0.1) 0%, transparent 70%);
+  opacity: calc(var(--render-glow) * 0.9);
+  pointer-events: none;
+  z-index: 0;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  border: none;
+  color: inherit;
+  outline: none;
+}
